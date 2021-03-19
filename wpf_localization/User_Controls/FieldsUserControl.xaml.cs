@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace wpf_localization.Views
+namespace wpf_localization.User_Controls
 {
     /// <summary>
-    /// Interaction logic for home.xaml
+    /// Interaction logic for FieldsUserControl.xaml
     /// </summary>
-    public partial class home : UserControl
+    public partial class FieldsUserControl : UserControl
     {
-        public home()
+        public FieldsUserControl()
         {
             InitializeComponent();
         }

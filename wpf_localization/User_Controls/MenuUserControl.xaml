@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="wpf_localization.User_Controls.MenuUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:wpf_localization.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="700">
+    <Grid>
+        <Menu AutomationProperties.Name="SupportedCultures" DockPanel.Dock="Top" IsMainMenu="True">
+            <MenuItem Header="{Binding menuFile , Source={StaticResource Resources}}">
+                <MenuItem Header="{Binding smFileNew , Source={StaticResource Resources}}"></MenuItem>
+                <MenuItem Header="{Binding smFileOpen , Source={StaticResource Resources}}"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="{Binding menuEdit , Source={StaticResource Resources}}">
+                <MenuItem Header="{Binding smEditCut , Source={StaticResource Resources}}"></MenuItem>
+                <MenuItem Header="{Binding smEditCopy , Source={StaticResource Resources}}"></MenuItem>
+                <MenuItem Header="{Binding smEditPaste , Source={StaticResource Resources}}"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="{Binding menuFormat , Source={StaticResource Resources}}">
+                <MenuItem Header="{Binding smFormatFont , Source={StaticResource Resources}}"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="{Binding menuView , Source={StaticResource Resources}}">
+                <MenuItem Header="{Binding smViewZoom , Source={StaticResource Resources}}"></MenuItem>
+                <MenuItem Header="{Binding smViewStatusBar , Source={StaticResource Resources}}"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="{Binding menuHelp , Source={StaticResource Resources}}">
+                <MenuItem Header="{Binding smHelpView , Source={StaticResource Resources}}"></MenuItem>
+                <MenuItem Header="{Binding smHelpAbout , Source={StaticResource Resources}}"></MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</UserControl>

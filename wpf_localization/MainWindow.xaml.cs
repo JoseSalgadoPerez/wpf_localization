@@ -35,9 +35,9 @@ namespace wpf_localization
             InitializeComponent();
             CultureResources.ResourceProvider.DataChanged += new EventHandler(ResourceProvider_DataChanged);
             CultureResources.ChangeCulture(this._utilityArguments.Culture);
-            this.cultureComboBox.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.cbLanguages_SelectionChanged);
-            this.cultureComboBox.SelectedItem = this._utilityArguments.Culture;
-            this._busyIndicator.IsBusy = this._utilityArguments.UseBusyControl;
+            //this.cultureComboBox.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.cbLanguages_SelectionChanged);
+            //this.cultureComboBox.SelectedItem = this._utilityArguments.Culture;
+            //this._busyIndicator.IsBusy = this._utilityArguments.UseBusyControl;
             this._mainPanel.IsEnabled = !this._utilityArguments.UseBusyControl;
             this.Loaded += new RoutedEventHandler(this.MainWindow_Loaded);
             Person person = new Person();
@@ -56,37 +56,37 @@ namespace wpf_localization
 
         private void cbLanguages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CultureInfo selected_culture = cultureComboBox.SelectedItem as CultureInfo;
+            //CultureInfo selected_culture = cultureComboBox.SelectedItem as CultureInfo;
 
-            if (Properties.Resources.Culture != null && !Properties.Resources.Culture.Equals(selected_culture))
-            {
-                Debug.WriteLine(string.Format("Change Current Culture to [{0}]", selected_culture));
-                CultureResources.ChangeCulture(selected_culture);
-            }
+            //if (Properties.Resources.Culture != null && !Properties.Resources.Culture.Equals(selected_culture))
+            //{
+            //    Debug.WriteLine(string.Format("Change Current Culture to [{0}]", selected_culture));
+            //    CultureResources.ChangeCulture(selected_culture);
+            //}
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            if (this._utilityArguments.ShowMessageBox)
-            {
-                var result = MessageBox.Show(Properties.Resources.language, Properties.Resources.warningMessage, MessageBoxButton.OKCancel, MessageBoxImage.Warning);
-                if (result != null)
-                {
-                    App.Current.Shutdown();
-                }
-            }
+            //if (this._utilityArguments.ShowMessageBox)
+            //{
+            //    var result = MessageBox.Show(Properties.Resources.language, Properties.Resources.warningMessage, MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            //    if (result != null)
+            //    {
+            //        App.Current.Shutdown();
+            //    }
+            //}
         }
 
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (tbHideButton.IsChecked == true)
-            {
-                this.btnOK.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                this.btnOK.Visibility = Visibility.Visible;
-            }
+            //if (tbHideButton.IsChecked == true)
+            //{
+            //    this.btnOK.Visibility = Visibility.Hidden;
+            //}
+            //else
+            //{
+            //    this.btnOK.Visibility = Visibility.Visible;
+            //}
         }
         #endregion [ Private Methods ]
 

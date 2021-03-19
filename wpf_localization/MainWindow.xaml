@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_localization"
         xmlns:p="clr-namespace:wpf_localization.Properties"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"        
+         xmlns:uc="clr-namespace:wpf_localization.User_Controls"       
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title= "{Binding Title , Source={StaticResource Resources}}" Height="450" Width="800">
@@ -21,119 +21,15 @@
 
     <DockPanel x:Name="_mainPanel">       
         <!-- Menu Bar-->
-        <Menu AutomationProperties.Name="SupportedCultures" DockPanel.Dock="Top">
-
-            <MenuItem Header="{Binding menuFile , Source={StaticResource Resources}}">
-                <MenuItem Header="{Binding smFileNew , Source={StaticResource Resources}}"></MenuItem>
-                <MenuItem Header="{Binding smFileOpen , Source={StaticResource Resources}}"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="{Binding menuEdit , Source={StaticResource Resources}}">
-                <MenuItem Header="{Binding smEditCut , Source={StaticResource Resources}}"></MenuItem>
-                <MenuItem Header="{Binding smEditCopy , Source={StaticResource Resources}}"></MenuItem>
-                <MenuItem Header="{Binding smEditPaste , Source={StaticResource Resources}}"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="{Binding menuFormat , Source={StaticResource Resources}}">
-                <MenuItem Header="{Binding smFormatFont , Source={StaticResource Resources}}"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="{Binding menuView , Source={StaticResource Resources}}">
-                <MenuItem Header="{Binding smViewZoom , Source={StaticResource Resources}}"></MenuItem>
-                <MenuItem Header="{Binding smViewStatusBar , Source={StaticResource Resources}}"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="{Binding menuHelp , Source={StaticResource Resources}}">
-                <MenuItem Header="{Binding smHelpView , Source={StaticResource Resources}}"></MenuItem>
-                <MenuItem Header="{Binding smHelpAbout , Source={StaticResource Resources}}"></MenuItem>
-            </MenuItem>
-        </Menu>
-        <!-- Data Entry -->
-        <Grid Style="{StaticResource WindowContentGrid}">
-            
+        <uc:MenuUserControl DockPanel.Dock="Top"/>
+        <Grid Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />                
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <GroupBox Grid.Row="0" Margin="5">
-                <Grid Margin="5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="Auto" MinWidth="83" />
-                        <ColumnDefinition Width="Auto" MinWidth="209" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    
-                   
-                    <!-- Languages -->
-                    <Label Style="{StaticResource Label}" Target="{Binding ElementName=supportedCulturesComboBox}" Grid.Column="2" Grid.Row="0" Height="25" Margin="0,1" Width="73"
-                       Content="{Binding language , Source={StaticResource Resources}}" x:Name="lblLanguage"/>
-
-                    <ComboBox Name="cultureComboBox"
-                          AutomationProperties.Name="Culture"
-                          Style="{StaticResource CultureList}"
-                          Grid.Column="3" Grid.Row="0"
-                          ItemTemplate="{StaticResource CulturesTemplate}"
-                          ItemsSource="{Binding Path=SupportedCultures, Mode=OneWay, Source={StaticResource CultureResourcesDS}}"
-                          SelectedValue="{Binding Path=Culture}"
-                          SelectedValuePath="@Number">
-                        <ComboBox.ToolTip>
-                            <TextBlock>Choose culture.</TextBlock>
-                        </ComboBox.ToolTip>
-                        <ComboBox.ItemContainerStyle>
-                            <Style>
-                                <Setter Property="AutomationProperties.Name" Value="{Binding XPath=@Name}" />
-                            </Style>
-                        </ComboBox.ItemContainerStyle>
-                    </ComboBox>
-
-                </Grid>
-            </GroupBox>
-
-            <StackPanel Grid.Row="1" Margin="10">
-                <xctk:BusyIndicator Name="_busyIndicator">
-                    <Grid Margin="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <TextBlock Grid.Row="0" Text="{Binding name , Source={StaticResource Resources}}" Margin="2" VerticalAlignment="Center" />
-                        <xctk:WatermarkTextBox Grid.Row="0" Grid.Column="1" Margin="2" VerticalAlignment="Center" Watermark="{Binding name , Source={StaticResource Resources}}" />
-
-                        <TextBlock Grid.Row="1" Text="{Binding email , Source={StaticResource Resources}}" Margin="2" VerticalAlignment="Center" />
-                        <xctk:WatermarkTextBox Grid.Row="1" Grid.Column="1" Margin="2" VerticalAlignment="Center" Watermark="{Binding email , Source={StaticResource Resources}}" />
-
-                        <TextBlock Grid.Row="2" Text="{Binding password , Source={StaticResource Resources}}" Margin="2" VerticalAlignment="Center" />
-                        <xctk:WatermarkPasswordBox Grid.Row="2" Grid.Column="1"  Margin="2" VerticalAlignment="Center" Watermark="{Binding ElementName=passwordTextBox}" />
-
-                        <TextBlock Grid.Row="3" Text="{Binding birthDay , Source={StaticResource Resources}}" Margin="2" VerticalAlignment="Center" />
-                        <xctk:DateTimeUpDown Grid.Row="3" Grid.Column="1" Format="ShortDate" Margin="2" VerticalAlignment="Center" Watermark="{Binding ElementName=birthDayTextBox}" />
-
-
-
-                        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                            <StackPanel>
-                                <ToggleButton x:Name="tbHideButton" Content="Hide OK Button" IsChecked="False" Checked="ToggleButton_Click" Unchecked="ToggleButton_Click" Height="20" />
-                            </StackPanel>
-                            <Button Width="65" Margin="2" Content="OK" x:Name="btnOK">
-                            </Button>
-                            <Button Width="65" Margin="2">Cancel</Button>
-                        </StackPanel>
-                    </Grid>
-                </xctk:BusyIndicator>
-            </StackPanel>   
+            <uc:ComboBoxUserControl Grid.Row="0" Margin="5"></uc:ComboBoxUserControl>
+            <uc:FieldsUserControl Grid.Row="1" Margin="10"></uc:FieldsUserControl>
         </Grid>
     </DockPanel>
 
