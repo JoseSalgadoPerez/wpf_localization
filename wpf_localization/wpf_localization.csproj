@@ -50,36 +50,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Xceed.Wpf.Controls.v7.0, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.Controls.7.0.20452.1321\lib\net40\Xceed.Wpf.Controls.v7.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.Controls.v7.0.XmlSerializers, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.Controls.7.0.20452.1321\lib\net40\Xceed.Wpf.Controls.v7.0.XmlSerializers.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.1.v7.0, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.DataGrid.ThemePack.1.7.0.20452.1321\lib\net40\Xceed.Wpf.DataGrid.ThemePack.1.v7.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.2.v7.0, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.DataGrid.ThemePack.2.7.0.20452.1321\lib\net40\Xceed.Wpf.DataGrid.ThemePack.2.v7.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.3.v7.0, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.DataGrid.ThemePack.3.7.0.20452.1321\lib\net40\Xceed.Wpf.DataGrid.ThemePack.3.v7.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.4.v7.0, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.DataGrid.ThemePack.4.7.0.20452.1321\lib\net40\Xceed.Wpf.DataGrid.ThemePack.4.v7.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.DataGrid.ThemePack.5.v7.0, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.DataGrid.ThemePack.5.7.0.20452.1321\lib\net40\Xceed.Wpf.DataGrid.ThemePack.5.v7.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.DataGrid.v7.0, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.DataGrid.7.0.20452.1321\lib\net40\Xceed.Wpf.DataGrid.v7.0.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.DataGrid.v7.0.XmlSerializers, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.DataGrid.7.0.20452.1321\lib\net40\Xceed.Wpf.DataGrid.v7.0.XmlSerializers.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.DataGrid.Views3D.v7.0, Version=7.0.20452.13100, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xceed.Wpf.DataGrid.Views3D.7.0.20452.1321\lib\net40\Xceed.Wpf.DataGrid.Views3D.v7.0.dll</HintPath>
-    </Reference>
     <Reference Include="Xceed.Wpf.Toolkit, Version=3.8.19076.18510, Culture=neutral, PublicKeyToken=ba83ff368b7563c6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\wpftoolkit-master\ExtendedWPFToolkitSolution\Src\Xceed.Wpf.Toolkit\bin\Debug\Xceed.Wpf.Toolkit.dll</HintPath>
@@ -90,6 +60,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Properties\Resources.zh-Hant.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.zh-Hant.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\home.xaml.cs">
       <DependentUpon>home.xaml</DependentUpon>
     </Compile>
@@ -191,6 +166,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Resources.zh-Hant.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.zh-Hant.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.zh-TW.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.zh-TW.Designer.cs</LastGenOutput>
@@ -227,7 +206,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
