@@ -1,0 +1,33 @@
+﻿<Application x:Class="wpf_localization.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:wpf_localization"
+             xmlns:conv="clr-namespace:wpf_localization.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+                <ResourceDictionary Source="Resource.xaml"/>
+                <ResourceDictionary Source="./Resources/Common.xaml" />
+                <ResourceDictionary Source="./Resources/TextBlockStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <XmlDataProvider x:Key="SupportedCultures" XPath="/SupportedCultures/*">
+                <x:XData>
+                    <SupportedCultures xmlns="">
+                        <Culture Number="1" ShortName="en-US"  Name="English" />
+                        <Culture Number="2" ShortName="es-ES"  Name="Spanish" />
+                        <Culture Number="3" ShortName="pt-BR"  Name="Portuguese" />
+                        <Culture Number="4" ShortName="ko-KR"  Name="Korean" />
+                        <Culture Number="5" ShortName="de-DE"  Name="German" />
+                        <Culture Number="6" ShortName="zh-CN"  Name="Chinese Traditional" />
+                        <Culture Number="7" ShortName="zh-TW"  Name="Chinese Simplified" />
+                    </SupportedCultures>
+                </x:XData>
+            </XmlDataProvider>
+
+            <conv:IntegerToTimespanConverter x:Key="TimeSpanConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
