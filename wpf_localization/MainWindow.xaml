@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_localization"
         xmlns:p="clr-namespace:wpf_localization.Properties"
-         xmlns:uc="clr-namespace:wpf_localization.User_Controls"       
+        xmlns:uc="clr-namespace:wpf_localization.User_Controls"       
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title= "{Binding Title , Source={StaticResource Resources}}" Height="450" Width="800">
