@@ -17,8 +17,7 @@ namespace wpf_localization
     public partial class MainWindow : Window
     {
         #region [ Properties ]
-        private UtilityArguments _utilityArguments;
-       
+        private UtilityArguments _utilityArguments;      
         #endregion [ Properties ]
 
         #region [ Constructor ]
@@ -28,10 +27,8 @@ namespace wpf_localization
             this._utilityArguments = new UtilityArguments(args);
             InitializeComponent();
             CultureResources.ResourceProvider.DataChanged += new EventHandler(ResourceProvider_DataChanged);
-            CultureResources.ChangeCulture(this._utilityArguments.Culture);           
-            this._mainPanel.IsEnabled = !this._utilityArguments.UseBusyControl;
-            this.Loaded += new RoutedEventHandler(this.MainWindow_Loaded);
-           
+            CultureResources.ChangeCulture(this._utilityArguments.Culture);         
+            this.Loaded += new RoutedEventHandler(this.MainWindow_Loaded);            
         }
         #endregion [ Constructor ]
 
@@ -50,13 +47,11 @@ namespace wpf_localization
                 {
                     App.Current.Shutdown();
                 }
-            }
+            }            
         }
         #endregion [ Private Methods ]
 
-    }
-
-   
+    }   
 }
 
 

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_localization"
         xmlns:p="clr-namespace:wpf_localization.Properties"
-        xmlns:uc="clr-namespace:wpf_localization.User_Controls"       
+        xmlns:uc="clr-namespace:wpf_localization.User_Controls" 
+        xmlns:mde="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title= "{Binding Title , Source={StaticResource Resources}}" Height="450" Width="800">
@@ -19,19 +20,26 @@
         </DataTemplate>   
     </Window.Resources>
 
-    <DockPanel x:Name="_mainPanel">       
-        <!-- Menu Bar-->
-        <uc:MenuUserControl DockPanel.Dock="Top"/>
-        <Grid Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+    <uc:MainViewUserControl/>
 
-            <uc:ComboBoxUserControl Grid.Row="0" Margin="5"></uc:ComboBoxUserControl>
-            <uc:FieldsUserControl Grid.Row="1" Margin="10"></uc:FieldsUserControl>
-        </Grid>
-    </DockPanel>
+    <!--<DockPanel x:Name="_mainPanel">       
+        --><!-- Menu Bar--><!--
+        <uc:MenuUserControl DockPanel.Dock="Top"/>
+        
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                --><!--<uc:LoadingIndicatorUserControl Grid.Row="0" Margin="5"></uc:LoadingIndicatorUserControl>--><!--
+                <mde:BusyOverlay Name="loaderIndicator" Grid.Row="0" IsBusy="True" Style="{StaticResource MaterialBusyOverlayCircular}">
+                </mde:BusyOverlay>
+                <uc:ComboBoxUserControl Grid.Row="1" Margin="10"></uc:ComboBoxUserControl>
+                <uc:FieldsUserControl Grid.Row="2" Margin="10"></uc:FieldsUserControl>
+            </Grid>
+       
+    </DockPanel>-->
 
 
 </Window>
